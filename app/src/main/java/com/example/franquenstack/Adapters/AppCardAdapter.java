@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.franquenstack.AppDetailsActivity;
+import com.example.franquenstack.ElementListActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.modelos.App;
 
@@ -112,7 +113,6 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardAdapter.ViewHold
             goDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO mandar a la view de detalles
                     Intent i = new Intent(context, AppDetailsActivity.class);
                     i.putExtra("App", app);
                     context.startActivity(i);
@@ -123,6 +123,9 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     //TODO mandar a la view a la aplicacion
+                    Intent i = new Intent(context, ElementListActivity.class);
+                    i.putExtra("App", app);
+                    context.startActivity(i);
                 }
             });
         }

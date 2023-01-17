@@ -12,6 +12,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.franquenstack.Controladores.ApplicationController;
+import com.example.franquenstack.R;
 
 import org.json.JSONObject;
 
@@ -32,7 +33,7 @@ public class LlamadaRegistro extends LlamarApi{
         data.put("password", password);
         data.put("email", email);
         RequestQueue queue = Volley.newRequestQueue(context);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, getStringUrl(), new JSONObject(data), new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, context.getString(R.string.Registrarse), new JSONObject(data), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (response != null){

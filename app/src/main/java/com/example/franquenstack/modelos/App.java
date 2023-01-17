@@ -8,20 +8,32 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 public class App implements Serializable {
+    private int id;
+    private String descripcion;
     private String nombre;
     private Double mediaPuntos;
 
-    public App(String nombre, Double mediaPuntos) {
+    public App(int id, String nombre, Double mediaPuntos) {
         this.nombre = nombre;
         this.mediaPuntos = mediaPuntos;
     }
     public App(JSONObject app){
         try {
+            id = app.getInt("app_id");
             nombre = app.getString("nombre");
+            descripcion = app.getString("descripcion");
             mediaPuntos = app.getDouble("mediaPuntos");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

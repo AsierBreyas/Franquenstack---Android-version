@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.franquenstack.AppListActivity;
 import com.example.franquenstack.Controladores.ApplicationController;
 import com.example.franquenstack.LoginActivity;
+import com.example.franquenstack.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +47,7 @@ public class LlamadaLogin extends LlamarApi {
         data.put("username", username);
         data.put("password", password);
         RequestQueue queue = Volley.newRequestQueue(context);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, getStringUrl(), new JSONObject(data), new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, context.getString(R.string.Login), new JSONObject(data), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (response != null) {
