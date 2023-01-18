@@ -29,6 +29,7 @@ public class ElementListActivity extends Activity {
         setContentView(R.layout.element_list_activity);
         App app = (App) getIntent().getSerializableExtra("App");
 
+        nombre = findViewById(R.id.textViewElementListNombreApp);
         nombre.setText(app.getNombre());
         LoginActivity.editor.putInt("appId", app.getId());
         LoginActivity.editor.apply();
@@ -38,10 +39,14 @@ public class ElementListActivity extends Activity {
         logoApp = findViewById(R.id.imageElementListAppLogo);
         logoApp.setImageResource(app.getImageId());
 
-        LlamadaListaElementos lle = new LlamadaListaElementos(getApplicationContext());
-        List<Elemento> elementos = lle.llamandoListaElementos();
-
         elementosLista = findViewById(R.id.elementosLista);
+        LlamadaListaElementos lle = new LlamadaListaElementos(getApplicationContext());
+        lle.llamandoListaElementos(this);
+
+
+
+    }
+    public void enseñarListado(List<Elemento> elementos){
         ElementCardAdapter elementCardAdapter = new ElementCardAdapter(elementos);
         elementosLista.setHasFixedSize(true);
         elementosLista.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

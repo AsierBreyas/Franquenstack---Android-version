@@ -57,7 +57,7 @@ public class App implements Serializable {
             case "POKEDEX":
                 id = R.drawable.pokeapi_logo;
                 break;
-            case "NETFLIZ":
+            case "NETFLIX":
                 id = R.drawable.netflix_logo;
                 break;
             case "FREE TO GAME":

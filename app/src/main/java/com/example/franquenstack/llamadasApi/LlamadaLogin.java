@@ -46,7 +46,6 @@ public class LlamadaLogin extends LlamarApi {
         HashMap data = new HashMap();
         data.put("username", username);
         data.put("password", password);
-        RequestQueue queue = Volley.newRequestQueue(context);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, context.getString(R.string.Login), new JSONObject(data), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

@@ -11,6 +11,7 @@
         android:id="@+id/imageElementListAppLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -19,23 +20,23 @@
         android:id="@+id/textViewElementListNombreApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:text="App"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageElementListAppLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageElementListAppLogo"
-        app:layout_constraintTop_toTopOf="@+id/imageElementListAppLogo" />
+        app:layout_constraintEnd_toEndOf="@+id/imageElementListAppLogo"
+        app:layout_constraintStart_toStartOf="@+id/imageElementListAppLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imageElementListAppLogo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageElementListAppLogo">
+        app:layout_constraintTop_toBottomOf="@+id/textViewElementListNombreApp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -67,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:foregroundGravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />

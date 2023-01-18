@@ -122,7 +122,6 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardAdapter.ViewHold
             goApp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO mandar a la view a la aplicacion
                     Intent i = new Intent(context, ElementListActivity.class);
                     i.putExtra("App", app);
                     context.startActivity(i);

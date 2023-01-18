@@ -17,6 +17,7 @@ import com.example.franquenstack.modelos.App;
 import java.util.List;
 
 public class AppListActivity extends Activity {
+    RecyclerView appLista;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_list_activity);
@@ -26,16 +27,9 @@ public class AppListActivity extends Activity {
         ImageView logoFran = findViewById(R.id.franquenstackLogo);
         logoFran.setImageResource(R.drawable.franquenstack);
 
-
+        appLista = findViewById(R.id.appList);
         LlamadaListaApps lla = new LlamadaListaApps(getApplicationContext(),this, LoginActivity.sharedPreferences.getString("token", null));
-        List<App> apps = lla.obtenerListado();
-
-        RecyclerView appLista = findViewById(R.id.appList);
-        AppCardAdapter appCardAdapter = new AppCardAdapter(apps);
-        appLista.setHasFixedSize(true);
-        appLista.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        appLista.setAdapter(appCardAdapter);
-
+        lla.obtenerListado();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -51,5 +45,11 @@ public class AppListActivity extends Activity {
                 finish();
         }
         return(super.onOptionsItemSelected(item));
+    }
+    public void enseñarListado(List<App> apps){
+        AppCardAdapter appCardAdapter = new AppCardAdapter(apps);
+        appLista.setHasFixedSize(true);
+        appLista.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        appLista.setAdapter(appCardAdapter);
     }
 }
