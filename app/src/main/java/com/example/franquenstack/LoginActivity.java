@@ -26,6 +26,8 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login_activity);
         sharedPreferences = this.getSharedPreferences("application", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
 
         logearse = (Button) findViewById(R.id.buttonLogearse);
         registrarse = (Button) findViewById(R.id.buttonRegistrarse);

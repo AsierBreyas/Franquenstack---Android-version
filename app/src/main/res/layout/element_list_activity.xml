@@ -11,22 +11,23 @@
         android:id="@+id/imageElementListAppLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonGoFavList"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textViewElementListNombreApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="15dp"
         android:text="App"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageElementListAppLogo"
-        app:layout_constraintStart_toStartOf="@+id/imageElementListAppLogo"
-        app:layout_constraintTop_toBottomOf="@+id/imageElementListAppLogo" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonGoFavList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonGoFavList" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -36,15 +37,25 @@
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElementListNombreApp">
+        app:layout_constraintTop_toBottomOf="@+id/imageElementListAppLogo">
+
+        <Spinner
+            android:id="@+id/spinnerFiltros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayoutFilterName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="5dp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutFilterName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonElementListSearchButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -59,7 +70,7 @@
             android:backgroundTint="#00BCD4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayoutFilterName"
             app:srcCompat="@drawable/search" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -72,5 +83,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+    <ImageButton
+        android:id="@+id/imageButtonGoFavList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewElementListNombreApp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fav_relleno" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

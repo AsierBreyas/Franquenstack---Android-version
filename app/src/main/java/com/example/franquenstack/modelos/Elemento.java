@@ -1,16 +1,29 @@
 package com.example.franquenstack.modelos;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class Elemento {
     private int id;
     private String name;
     private String imagen;
-
-    public Elemento(int id, String name, String imagen) {
-        this.id = id;
-        this.name = name;
-        this.imagen = imagen;
+    private ArrayList<String> generos;
+    public Elemento(JSONObject object){
+        try {
+            id = object.getInt("id");
+            name = object.getString("name");
+            imagen = object.getString("imagen");
+            this.generos = new ArrayList<>();
+            String[] generos = object.getString("genres").split(";");
+            for (int i = 0; i < generos.length; i++){
+                this.generos.add(generos[i]);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
-
     public int getId() {
         return id;
     }
@@ -33,5 +46,13 @@ public class Elemento {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public ArrayList<String> getGeneros() {
+        return generos;
+    }
+
+    public void setGeneros(ArrayList<String> generos) {
+        this.generos = generos;
     }
 }

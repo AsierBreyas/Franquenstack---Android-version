@@ -6,12 +6,14 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.franquenstack.Controladores.ApplicationController;
-import com.example.franquenstack.ElementListActivity;
+import com.example.franquenstack.ElementGenericActivity;
 import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.modelos.Elemento;
+import com.example.franquenstack.modelos.ElementoGenerico;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,29 +24,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LlamadaListaElementos extends LlamarApi {
-    Context context;
-
-    public LlamadaListaElementos(Context context) {
-
+public class LlamadaElementosGenericos {
+    private  Context context;
+    private ElementGenericActivity activity;
+    public LlamadaElementosGenericos(Context context, ElementGenericActivity activity){
         this.context = context;
+        this.activity = activity;
     }
-
-    public void llamandoListaElementos(ElementListActivity activity) {
-
+    public void obtenerElemento(int idElemento) {
         StringRequest request = new StringRequest(Request.Method.GET,
-                context.getString(R.string.listaElementos) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1), new Response.Listener<String>() {
+                context.getString(R.string.obtenerElementoGenerico) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1) + "&item=" + idElemento, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                List<Elemento> elementoList = new ArrayList<>();
+                ElementoGenerico elementoGenerico;
                 try {
-                    JSONArray arrayElementos = new JSONArray(response);
-                    for (int i = 0; i < arrayElementos.length(); i++) {
-                        JSONObject objecto = arrayElementos.getJSONObject(i);
-                        Elemento elemento = new Elemento(objecto);
-                        elementoList.add(elemento);
-                    }
-                    activity.enseñarListado(elementoList);
+                    JSONObject elemento = new JSONObject(response);
+                    elementoGenerico = new ElementoGenerico(elemento);
+                    activity.ponerElementos(elementoGenerico);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -54,7 +50,7 @@ public class LlamadaListaElementos extends LlamarApi {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        }){
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

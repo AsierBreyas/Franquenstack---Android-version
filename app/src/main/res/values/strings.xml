@@ -4,4 +4,9 @@
     <string name="Registrarse">http://10.0.2.2:8080/auth/crearUsuario</string>
     <string name="listaApps">http://10.0.2.2:8080/app/dameApps</string>
     <string name="listaElementos">http://10.0.2.2:8080/main/dameListado</string>
+    <string name="obtenerElemento">http://10.0.2.2:8080/main/dameElemento</string>
+    <string name="obtenerElementoGenerico"> http://10.0.2.2:8080/main/dameElemento</string>
+    <string name="favoritos">http://10.0.2.2:8080/favorito/cambiarFavorito</string>
+    <string name="favoritosLista">http://10.0.2.2:8080/favorito/dameFavoritos</string>
+    <string name="listaGeneros">http://10.0.2.2:8080/app/dameGeneros</string>
 </resources>

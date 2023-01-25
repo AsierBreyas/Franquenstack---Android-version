@@ -22,29 +22,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LlamadaListaElementos extends LlamarApi {
+public class LlamadaListaGeneros {
     Context context;
-
-    public LlamadaListaElementos(Context context) {
-
+    public LlamadaListaGeneros(Context context){
         this.context = context;
     }
-
-    public void llamandoListaElementos(ElementListActivity activity) {
-
+    public void llamarGeneros(ElementListActivity activity){
         StringRequest request = new StringRequest(Request.Method.GET,
-                context.getString(R.string.listaElementos) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1), new Response.Listener<String>() {
+                context.getString(R.string.listaGeneros) + "?app_id=" + LoginActivity.sharedPreferences.getInt("appId", 1), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                List<Elemento> elementoList = new ArrayList<>();
+                ArrayList<String> generos = new ArrayList<>();
+                generos.add("No filter");
                 try {
                     JSONArray arrayElementos = new JSONArray(response);
-                    for (int i = 0; i < arrayElementos.length(); i++) {
-                        JSONObject objecto = arrayElementos.getJSONObject(i);
-                        Elemento elemento = new Elemento(objecto);
-                        elementoList.add(elemento);
-                    }
-                    activity.enseñarListado(elementoList);
+                    for (int i = 0; i < arrayElementos.length(); i++)
+                        generos.add(arrayElementos.getString(i));
+                    activity.ponerSpiner(generos);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
