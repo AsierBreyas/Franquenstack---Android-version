@@ -60,15 +60,13 @@ public class ElementListActivity extends Activity {
             @Override
             public void onClick(View view) {
                 filtroFavActivado = ! filtroFavActivado;
+                filtros.setVisibility(View.VISIBLE);
                 if (filtroFavActivado){
                     LlamadaFavoritos lf = new LlamadaFavoritos(getApplicationContext());
                     lf.llamarListaFavoritos(activity);
                     goFav.setImageResource(R.drawable.fav_relleno);
                 }else{
-                    listaActual.clear();
-                    for (Elemento elemento: listaDeElementos){
-                        listaActual.add(elemento);
-                    }
+                    filtros.setSelection(0);
                     elementCardAdapter.notifyDataSetChanged();
                     goFav.setImageResource(R.drawable.fav);
                 }
@@ -169,8 +167,11 @@ public class ElementListActivity extends Activity {
             for (Elemento elemento: listaDeElementos){
                 listaActual.add(elemento);
             }
+            filtros.setSelection(0);
             filtroFavActivado = false;
             goFav.setImageResource(R.drawable.fav);
+        }else{
+            filtros.setVisibility(View.INVISIBLE);
         }
         elementCardAdapter.notifyDataSetChanged();
     }
