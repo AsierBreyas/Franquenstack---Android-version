@@ -33,7 +33,7 @@ public class RegistrerActivity extends Activity {
                 String stringRepeat = repeatPassword.getEditText().getText().toString();
                 String stringEmail = email.getEditText().getText().toString();
                 if(stringPassword.equals(stringRepeat)){
-                    LlamadaRegistro lr = new LlamadaRegistro( "http://10.10.12.167:8080/usuario/login", getApplicationContext(), activity);
+                    LlamadaRegistro lr = new LlamadaRegistro(getApplicationContext(), activity);
                     lr.registrarse(stringUsername, stringPassword, stringEmail);
                 }
             }

@@ -44,6 +44,8 @@ public class LoginActivity extends Activity {
                 }else{
                     LlamadaLogin ll = new LlamadaLogin(LoginActivity.this, activity);
                     ll.logearse(stringUsername, stringPassword);
+                    username.getEditText().setText("");
+                    password.getEditText().setText("");
                 }
             }
         });

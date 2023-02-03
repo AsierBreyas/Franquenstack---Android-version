@@ -22,8 +22,7 @@ import java.util.Map;
 public class LlamadaRegistro extends LlamarApi{
     Context context;
     Activity activity;
-    public LlamadaRegistro(String url, Context context, Activity activity){
-        setStringUrl(url);
+    public LlamadaRegistro(Context context, Activity activity){
         this.context = context;
         this.activity = activity;
     }
@@ -32,7 +31,6 @@ public class LlamadaRegistro extends LlamarApi{
         data.put("nombre", nombre);
         data.put("password", password);
         data.put("email", email);
-        RequestQueue queue = Volley.newRequestQueue(context);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, context.getString(R.string.Registrarse), new JSONObject(data), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

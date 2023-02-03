@@ -12,14 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewElementGenericFav">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout8"
-            android:layout_width="235dp"
+            android:layout_width="215dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewElementGenereic"
@@ -74,9 +77,11 @@
         android:id="@+id/listaComentariosElementoGenereic"
         android:layout_width="match_parent"
         android:layout_height="193dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <TextView
         android:id="@+id/textViewElementGenericName"
@@ -93,10 +98,11 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:layout_marginTop="6dp"
         android:background="#B5B5B5"
         android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewDetallesElemento"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
         tools:layout_editor_absoluteX="0dp">
 
@@ -113,12 +119,13 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         android:padding="0dp"
         app:layout_constraintBottom_toTopOf="@+id/listaComentariosElementoGenereic"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewDetallesElemento">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutElementGenericComentario"
@@ -145,6 +152,7 @@
         android:id="@+id/recyclerViewDetallesElemento"
         android:layout_width="match_parent"
         android:layout_height="140dp"
+        android:layout_marginTop="6dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,6 +162,7 @@
         android:id="@+id/imageViewElementGenericFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toStartOf="@+id/textViewElementGenericName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
