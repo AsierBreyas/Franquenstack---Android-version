@@ -23,12 +23,13 @@ public class ElementoGenerico implements Serializable {
 
     public ElementoGenerico(JSONObject object) throws JSONException {
         this.id = object.getInt("id");
-        this.name = object.getString("name").substring(0,1).toUpperCase() + object.getString("name").substring(1);
+        this.name = object.getString("name");
         this.image = object.getString("image");
         this.description = object.getString("description").replaceAll("<[^>]*>", "");
         this.version = object.getString("version");
         this.publisher = object.getString("publisher");
         this.genero = object.getString("genero");
+        JSONArray jsonArray = object.getJSONArray("comentarios");
         switch (LoginActivity.sharedPreferences.getInt("appId", 0)){
             case 1:
                 detalles = new JuegoDetalles(object.getJSONObject("detalles"));
@@ -40,7 +41,6 @@ public class ElementoGenerico implements Serializable {
                 detalles = new NetflixDetalles(object.getJSONObject("detalles"));
                 break;
         }
-        JSONArray jsonArray = object.getJSONArray("comentarios");
         comentarios = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++){
             comentarios.add(new Comentario(jsonArray.getJSONObject(i)));

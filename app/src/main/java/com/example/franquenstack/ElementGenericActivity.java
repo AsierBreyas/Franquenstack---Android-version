@@ -70,10 +70,10 @@ public class ElementGenericActivity extends Activity {
         if (LoginActivity.sharedPreferences.getInt("appId", 1) == 2)
             lle.obtenerElemento(elementoNombre);
         else
-            lle.obtenerElemento(elementoId);
+            lle.obtenerElemento(elementoId + "");
     }
     public void ponerElementos(ElementoGenerico elemento){
-        nombre.setText(elemento.getName());
+        nombre.setText(elemento.getName().substring(0,1).toUpperCase() + elemento.getName().substring(1));
         desc.setText(elemento.getDescription());
         genero.setText(genero.getText() + " " + elemento.getGenero());
         fecha.setText(fecha.getText() + " " + elemento.getVersion());
@@ -118,7 +118,7 @@ public class ElementGenericActivity extends Activity {
                 if (comentario.getEditText().getText().toString() != ""){
                     Comentario comentarioE = new Comentario(comentario.getEditText().getText().toString());
                     LlamadaComentarios lc = new LlamadaComentarios(getApplicationContext());
-                    lc.publicarComentario(comentarioE, elemento.getId());
+                    lc.publicarComentario(comentarioE, elemento);
                     elemento.addComentario(comentarioE);
                     if (elemento.getComentarios().size() == 1)
                         hacerAdaptador(elemento);

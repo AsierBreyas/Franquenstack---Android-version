@@ -72,7 +72,7 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
     @Override
     public void onBindViewHolder(ElementCardAdapter.ViewHolder2 viewHolder, final int position){
         Elemento elemento = elementos.get(position);
-        viewHolder.elementNombre.setText(elemento.getName());
+        viewHolder.elementNombre.setText(elemento.getName().substring(0,1).toUpperCase() + elemento.getName().substring(1));
         viewHolder.activarBotonDetalles(elemento);
         Picasso.get().load(elemento.getImagen()).into(viewHolder.elementImage);
         viewHolder.faveado = false;

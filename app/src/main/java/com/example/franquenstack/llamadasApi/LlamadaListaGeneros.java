@@ -37,7 +37,7 @@ public class LlamadaListaGeneros {
                 try {
                     JSONArray arrayElementos = new JSONArray(response);
                     for (int i = 0; i < arrayElementos.length(); i++)
-                        generos.add(arrayElementos.getString(i));
+                        generos.add(arrayElementos.getString(i).substring(0,1).toUpperCase() + arrayElementos.getString(i).substring(1));
                     activity.ponerSpiner(generos);
                 } catch (JSONException e) {
                     e.printStackTrace();

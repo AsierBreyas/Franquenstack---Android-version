@@ -13,6 +13,7 @@ import com.example.franquenstack.Controladores.ApplicationController;
 import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.modelos.Comentario;
+import com.example.franquenstack.modelos.ElementoGenerico;
 
 import org.json.JSONObject;
 
@@ -59,12 +60,12 @@ public class LlamadaComentarios {
         };
         ApplicationController.getInstance().addToRequestQueue(request);
     }
-    public void publicarComentario(Comentario comentario, int elementoId){
-        HashMap data = new HashMap();
-        data.put("comment_text", comentario.getComment_text());
-        data.put("hora", comentario.getHora());
-        data.put("elemento_id", elementoId + "");
-        data.put("app_id", LoginActivity.sharedPreferences.getInt("appId", 0) + "");
+    public void publicarComentario(Comentario comentario, ElementoGenerico elemento){
+        HashMap data2 = new HashMap();
+        data2.put("comment_text", comentario.getComment_text());
+        data2.put("hora", comentario.getHora());
+        data2.put("elemento_id", LoginActivity.sharedPreferences.getInt("appId", 0)== 2 ? elemento.getName(): elemento.getId() + "");
+        data2.put("app_id", LoginActivity.sharedPreferences.getInt("appId", 0) + "");
         StringRequest request = new StringRequest(Request.Method.POST, context.getString(R.string.postearComentario), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -85,7 +86,7 @@ public class LlamadaComentarios {
             }
             @Override
             public byte[] getBody() throws AuthFailureError {
-                return new JSONObject(data).toString().getBytes();
+                return new JSONObject(data2).toString().getBytes();
             }
             @Override
             public String getBodyContentType(){
