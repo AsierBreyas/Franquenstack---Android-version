@@ -70,7 +70,7 @@ public class ElementGenericActivity extends Activity {
         if (LoginActivity.sharedPreferences.getInt("appId", 1) == 2)
             lle.obtenerElemento(elementoNombre);
         else
-            lle.obtenerElemento(elementoId + "");
+            lle.obtenerElemento(elementoId);
     }
     public void ponerElementos(ElementoGenerico elemento){
         nombre.setText(elemento.getName().substring(0,1).toUpperCase() + elemento.getName().substring(1));

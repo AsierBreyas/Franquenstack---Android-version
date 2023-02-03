@@ -175,37 +175,32 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardAdapter.ViewHold
                     if (response != null) {
                         try {
                             JSONArray appLista = new JSONArray(response);
+                            estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
+                            estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
+                            estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
+                            estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
+                            estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                             for (int i = 0; i < appLista.length(); i++) {
                                 JSONObject object = appLista.getJSONObject(i);
                                 if (object.getString("app_id").equals(Integer.toString(app.getId()))) {
                                     switch (Math.round(Float.parseFloat(object.getString("puntos")))) {
                                         case 1:
                                             estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48);
-                                            estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                                             break;
                                         case 2:
                                             estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48);
-                                            estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                                             break;
                                         case 3:
                                             estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48);
-                                            estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                                            estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                                             break;
                                         case 4:
                                             estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48);
                                             estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48);
-                                            estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                                             break;
                                         case 5:
                                             estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48);
@@ -220,12 +215,6 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardAdapter.ViewHold
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }else{
-                        estrella1.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                        estrella2.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                        estrella3.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                        estrella4.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
-                        estrella5.setImageResource(R.drawable.icons8_estrella_relleno_48__1_);
                     }
                 }
             }, new Response.ErrorListener() {
