@@ -50,7 +50,10 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, ElementGenericActivity.class);
-                    i.putExtra("ElementoId", elemento.getId());
+                    if (LoginActivity.sharedPreferences.getInt("appId", 1) == 2)
+                        i.putExtra("ElementoNombre", elemento.getName());
+                    else
+                        i.putExtra("ElementoId", elemento.getId());
                     context.startActivity(i);
                 }
             });

@@ -7,77 +7,68 @@
     android:background="#03A9F4"
     android:padding="8dp" >
 
-    <TextView
-        android:id="@+id/textViewElemetGenericGenre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Genre:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElementGenericName">
+        app:layout_constraintTop_toBottomOf="@+id/imageViewElementGenericFav">
 
-        <ImageView
-            android:id="@+id/imageViewElementGenereic"
-            android:layout_width="199dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="6dp"
-            android:layout_weight="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Button
-            android:id="@+id/buttonSeeMore"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
+            android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00BCD4"
-            android:text="See\nmore"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewElementGenereic"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewElemetGenericGenre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Genre:"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewElemetGenericDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Realese date:"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericGenre"
+                app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericGenre" />
+
+            <TextView
+                android:id="@+id/textViewElemetGenericPublisher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Publisher:"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericDate"
+                app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericDate" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imageViewElementGenericFav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageViewElementGenereic"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewElementGenereic"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewElementGenericFav"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fav" />
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textViewElemetGenericDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Date:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericGenre"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericGenre" />
-
-    <TextView
-        android:id="@+id/textViewElemetGenericPublisher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Publisher:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericDate"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericDate" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaComentariosElementoGenereic"
@@ -85,26 +76,27 @@
         android:layout_height="193dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewElementGenericName"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:paddingStart="15dp"
         android:text="Nombre"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewElementGenericFav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewElementGenericFav" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         android:layout_marginTop="6dp"
         android:background="#B5B5B5"
+        android:padding="4dp"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
         tools:layout_editor_absoluteX="0dp">
 
@@ -121,13 +113,12 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         android:padding="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericPublisher"
-        app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericPublisher">
+        app:layout_constraintBottom_toTopOf="@+id/listaComentariosElementoGenereic"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutElementGenericComentario"
@@ -149,5 +140,23 @@
             app:srcCompat="@drawable/envia2" />
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDetallesElemento"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <ImageView
+        android:id="@+id/imageViewElementGenericFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textViewElementGenericName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

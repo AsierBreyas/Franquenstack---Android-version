@@ -2,30 +2,45 @@ package com.example.franquenstack.modelos;
 
 import com.example.franquenstack.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App implements Serializable {
     private int id;
     private String descripcion;
     private String nombre;
     private Double mediaPuntos;
+    private List<Comentario> comentarios;
 
-    public App(int id, String nombre, Double mediaPuntos) {
-        this.nombre = nombre;
-        this.mediaPuntos = mediaPuntos;
-    }
     public App(JSONObject app){
         try {
             id = app.getInt("app_id");
             nombre = app.getString("nombre");
             descripcion = app.getString("descripcion");
             mediaPuntos = app.getDouble("mediaPuntos");
+            comentarios = new ArrayList<>();
+            JSONArray arrayComentarios = app.getJSONArray("listaComentarios");
+            if (arrayComentarios.length() > 0){
+                for (int i = 0; i < arrayComentarios.length(); i++){
+                    Comentario comentario = new Comentario(arrayComentarios.getJSONObject(i));
+                    comentarios.add(comentario);
+                }
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public App(int id, String descripcion, String nombre, Double mediaPuntos) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.mediaPuntos = mediaPuntos;
     }
 
     public int getId() {
@@ -40,17 +55,10 @@ public class App implements Serializable {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Double getMediaPuntos() {
         return mediaPuntos;
     }
 
-    public void setMediaPuntos(Double mediaPuntos) {
-        this.mediaPuntos = mediaPuntos;
-    }
     public int getImageId(){
         int id = R.drawable.franquenstack;
         switch (nombre){
@@ -65,5 +73,16 @@ public class App implements Serializable {
                 break;
         }
         return id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+    public void addComentario(Comentario comentario){
+        comentarios.add(comentario);
     }
 }

@@ -2,7 +2,10 @@ package com.example.franquenstack.llamadasApi;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -11,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.franquenstack.Controladores.ApplicationController;
 import com.example.franquenstack.Controladores.FavList;
+import com.example.franquenstack.ElementGenericActivity;
 import com.example.franquenstack.ElementListActivity;
 import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
@@ -27,13 +31,8 @@ import java.util.Map;
 
 public class LlamadaFavoritos {
     private Context context;
-    public ElementListActivity activity;
     public LlamadaFavoritos(Context context){
         this.context = context;
-    }
-    public LlamadaFavoritos(Context context, ElementListActivity activity){
-        this.context = context;
-        this.activity = activity;
     }
     public void cambiarFavorito(int elementId){
         HashMap data = new HashMap();
@@ -68,17 +67,52 @@ public class LlamadaFavoritos {
         };
         ApplicationController.getInstance().addToRequestQueue(request);
     }
-    public void llamarListaFavoritos(){
+    public void llamarListaFavoritos(ElementListActivity activity){
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.favoritosLista) + "?app_id=" + LoginActivity.sharedPreferences.getInt("appId", 0),new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray favoritos = new JSONArray(response);
+                    ArrayList<Integer> favList = new ArrayList<>();
                     for(int i = 0; i < favoritos.length(); i++){
-                        FavList.favList.add(favoritos.getInt(i));
+                        favList.add(favoritos.getInt(i));
                     }
-
+                    activity.ponerFavoritos(favList);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer " + LoginActivity.sharedPreferences.getString("token", null));
+                return params;
+            }
+        };
+        ApplicationController.getInstance().addToRequestQueue(request);
+    }
+    public void estaElementoFaveado(ElementGenericActivity activity, int id){
+        StringRequest request = new StringRequest(Request.Method.GET,
+                context.getString(R.string.favoritosLista) + "?app_id=" + LoginActivity.sharedPreferences.getInt("appId", 0),new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray favoritos = new JSONArray(response);
+                    boolean encontrado = false;
+                    for(int i = 0; i < favoritos.length(); i++){
+                        if (favoritos.getInt(i) == id)
+                            encontrado = true;
+                    }
+                    activity.estaElementofaveado(encontrado);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

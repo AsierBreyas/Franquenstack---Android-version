@@ -40,6 +40,7 @@ public class ElementListActivity extends Activity {
     private List<Elemento> listaFiltrada;
     private ElementCardAdapter elementCardAdapter;
     private TextInputLayout filtroNombre;
+    private boolean filtroFavActivado;
 
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
@@ -52,7 +53,27 @@ public class ElementListActivity extends Activity {
         LoginActivity.editor.apply();
 
         goFav = findViewById(R.id.imageButtonGoFavList);
-        goFav.setImageResource(R.drawable.fav_relleno);
+        goFav.setImageResource(R.drawable.fav);
+        filtroFavActivado = false;
+        ElementListActivity activity = this;
+        goFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filtroFavActivado = ! filtroFavActivado;
+                if (filtroFavActivado){
+                    LlamadaFavoritos lf = new LlamadaFavoritos(getApplicationContext());
+                    lf.llamarListaFavoritos(activity);
+                    goFav.setImageResource(R.drawable.fav_relleno);
+                }else{
+                    listaActual.clear();
+                    for (Elemento elemento: listaDeElementos){
+                        listaActual.add(elemento);
+                    }
+                    elementCardAdapter.notifyDataSetChanged();
+                    goFav.setImageResource(R.drawable.fav);
+                }
+            }
+        });
 
         buscar = findViewById(R.id.imageButtonElementListSearchButton);
         buscar.setImageResource(R.drawable.search);
@@ -122,6 +143,7 @@ public class ElementListActivity extends Activity {
                         }
                     }
                 }
+                goFav.setImageResource(R.drawable.fav);
                 elementCardAdapter.notifyDataSetChanged();
             }
             @Override
@@ -133,5 +155,23 @@ public class ElementListActivity extends Activity {
                 elementCardAdapter.notifyDataSetChanged();
             }
         });
+    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void ponerFavoritos(ArrayList<Integer> favoritos){
+        listaActual.clear();
+        for (int favId: favoritos){
+            for (Elemento elemento: (ArrayList<Elemento>) listaDeElementos.stream().filter(x -> x.getId() == favId).collect(Collectors.toList())){
+                listaActual.add(elemento);
+            }
+        }
+        if (listaActual.size() == 0){
+            Toast.makeText(getApplicationContext(), "You have no favorites in this app", Toast.LENGTH_SHORT);
+            for (Elemento elemento: listaDeElementos){
+                listaActual.add(elemento);
+            }
+            filtroFavActivado = false;
+            goFav.setImageResource(R.drawable.fav);
+        }
+        elementCardAdapter.notifyDataSetChanged();
     }
 }

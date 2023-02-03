@@ -60,4 +60,33 @@ public class LlamadaElementosGenericos {
         };
         ApplicationController.getInstance().addToRequestQueue(request);
     }
+    public void obtenerElemento(String nombreElemento) {
+        StringRequest request = new StringRequest(Request.Method.GET,
+                context.getString(R.string.obtenerElementoGenerico) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1) + "&item=" + nombreElemento, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                ElementoGenerico elementoGenerico;
+                try {
+                    JSONObject elemento = new JSONObject(response);
+                    elementoGenerico = new ElementoGenerico(elemento);
+                    activity.ponerElementos(elementoGenerico);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer " + LoginActivity.sharedPreferences.getString("token", null));
+                return params;
+            }
+        };
+        ApplicationController.getInstance().addToRequestQueue(request);
+    }
 }

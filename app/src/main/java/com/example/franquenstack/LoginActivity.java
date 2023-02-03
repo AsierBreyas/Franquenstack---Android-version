@@ -54,4 +54,7 @@ public class LoginActivity extends Activity {
             }
         });
     }
+
+    public static class NetflixActivity {
+    }
 }

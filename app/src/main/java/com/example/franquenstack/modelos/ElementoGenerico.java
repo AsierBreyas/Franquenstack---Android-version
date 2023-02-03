@@ -1,12 +1,15 @@
 package com.example.franquenstack.modelos;
 
+import com.example.franquenstack.LoginActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ElementoGenerico {
+public class ElementoGenerico implements Serializable {
     private int id;
     private Object tipo;
     private String name;
@@ -20,15 +23,23 @@ public class ElementoGenerico {
 
     public ElementoGenerico(JSONObject object) throws JSONException {
         this.id = object.getInt("id");
-        /*this.tipo = object.getJSONObject("tipo");*/
-        this.name = object.getString("name");
+        this.name = object.getString("name").substring(0,1).toUpperCase() + object.getString("name").substring(1);
         this.image = object.getString("image");
         this.description = object.getString("description").replaceAll("<[^>]*>", "");
         this.version = object.getString("version");
         this.publisher = object.getString("publisher");
         this.genero = object.getString("genero");
-        //TODO detalles
-        /*this.detalles = detalles;*/
+        switch (LoginActivity.sharedPreferences.getInt("appId", 0)){
+            case 1:
+                detalles = new JuegoDetalles(object.getJSONObject("detalles"));
+                break;
+            case 2:
+                detalles = new PokemonDetalles(object.getJSONObject("detalles"));
+                break;
+            case 3:
+                detalles = new NetflixDetalles(object.getJSONObject("detalles"));
+                break;
+        }
         JSONArray jsonArray = object.getJSONArray("comentarios");
         comentarios = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++){
@@ -122,7 +133,7 @@ public class ElementoGenerico {
         return comentarios;
     }
 
-    public void setComentarios(ArrayList<Comentario> comentarios) {
-        this.comentarios = comentarios;
+    public void addComentario(Comentario comentario){
+        comentarios.add(comentario);
     }
 }

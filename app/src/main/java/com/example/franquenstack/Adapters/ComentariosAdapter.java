@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.modelos.Comentario;
 import com.example.franquenstack.modelos.Elemento;
@@ -33,7 +34,10 @@ public class ComentariosAdapter extends RecyclerView.Adapter<ComentariosAdapter.
     @Override
     public void onBindViewHolder(ComentariosAdapter.ViewHolder viewHolder, final int position){
         Comentario comentario = comentarios.get(position);
-        viewHolder.nombre.setText(comentario.getUsername() + ": " + comentario.getHora());
+        if (comentario.getUsername().equals(LoginActivity.sharedPreferences.getString("username", "Eustaquio")))
+            viewHolder.nombre.setText("You - " + comentario.getHora());
+        else
+            viewHolder.nombre.setText(comentario.getUsername() + " - " + comentario.getHora());
         viewHolder.texto.setText(comentario.getComment_text());
     }
     @Override
