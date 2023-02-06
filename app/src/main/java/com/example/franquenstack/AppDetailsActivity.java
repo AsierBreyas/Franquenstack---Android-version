@@ -39,7 +39,7 @@ public class AppDetailsActivity extends Activity {
         estrellita = findViewById(R.id.imageViewMediaDetalles);
         containerComentarios = findViewById(R.id.containerComentariosDetallesApp);
         enviar = findViewById(R.id.buttonElementGenericEnviarComentario);
-        enviar.setImageResource(R.drawable.enviar);
+        enviar.setImageResource(R.drawable.envia2);
         inputComentario = findViewById(R.id.textInputLayoutElementGenericComentario);
 
         LlamadaListaApps lla = new LlamadaListaApps(getApplicationContext(), this);

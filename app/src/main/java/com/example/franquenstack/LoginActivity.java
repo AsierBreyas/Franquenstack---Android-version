@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.franquenstack.llamadasApi.LlamadaLogin;
 import com.google.android.material.textfield.TextInputLayout;
+import com.squareup.picasso.Picasso;
 
 public class LoginActivity extends Activity {
     public static SharedPreferences sharedPreferences;
@@ -33,6 +35,7 @@ public class LoginActivity extends Activity {
         registrarse = (Button) findViewById(R.id.buttonRegistrarse);
         username = (TextInputLayout) findViewById(R.id.textInputUsername);
         password = (TextInputLayout) findViewById(R.id.textInputContraseña);
+        Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png").into((ImageView) findViewById(R.id.imageViewPokemonRandom));
         Activity activity = this;
         logearse.setOnClickListener(new View.OnClickListener() {
             @Override

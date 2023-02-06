@@ -18,7 +18,7 @@ public class Elemento {
             this.generos = new ArrayList<>();
             String[] generos = object.getString("genres").split(";");
             for (int i = 0; i < generos.length; i++){
-                this.generos.add(generos[i]);
+                this.generos.add(generos[i].substring(0,1).toUpperCase() + generos[i].substring(1));
             }
         } catch (JSONException e) {
             e.printStackTrace();

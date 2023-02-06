@@ -1,32 +1,24 @@
 package com.example.franquenstack.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.franquenstack.AppDetailsActivity;
-import com.example.franquenstack.Controladores.FavList;
 import com.example.franquenstack.ElementGenericActivity;
 import com.example.franquenstack.ElementListActivity;
 import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.llamadasApi.LlamadaFavoritos;
-import com.example.franquenstack.modelos.App;
 import com.example.franquenstack.modelos.Elemento;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.ViewHolder2>{
@@ -45,7 +37,7 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
             layout = view.findViewById(R.id.constraintLayoutElementCard);
             context = view.getContext();
         }
-        public void activarBotonDetalles(Elemento elemento){
+        public void activarBotonDetalles(Elemento elemento, ElementListActivity activity){
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -73,7 +65,7 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
     public void onBindViewHolder(ElementCardAdapter.ViewHolder2 viewHolder, final int position){
         Elemento elemento = elementos.get(position);
         viewHolder.elementNombre.setText(elemento.getName().substring(0,1).toUpperCase() + elemento.getName().substring(1));
-        viewHolder.activarBotonDetalles(elemento);
+        viewHolder.activarBotonDetalles(elemento, activity);
         Picasso.get().load(elemento.getImagen()).into(viewHolder.elementImage);
         viewHolder.faveado = false;
     }

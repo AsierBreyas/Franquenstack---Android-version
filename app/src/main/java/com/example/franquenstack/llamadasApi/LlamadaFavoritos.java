@@ -34,9 +34,9 @@ public class LlamadaFavoritos {
     public LlamadaFavoritos(Context context){
         this.context = context;
     }
-    public void cambiarFavorito(int elementId){
+    public void cambiarFavorito(String elementId){
         HashMap data = new HashMap();
-        data.put("elemento_id", Integer.toString(elementId));
+        data.put("elemento_id", elementId);
         data.put("app_id", Integer.toString(LoginActivity.sharedPreferences.getInt("appId", 0)));
         StringRequest request = new StringRequest(Request.Method.POST, context.getString(R.string.favoritos), new Response.Listener<String>() {
             @Override
@@ -99,7 +99,7 @@ public class LlamadaFavoritos {
         };
         ApplicationController.getInstance().addToRequestQueue(request);
     }
-    public void estaElementoFaveado(ElementGenericActivity activity, int id){
+    public void estaElementoFaveado(ElementGenericActivity activity, String id){
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.favoritosLista) + "?app_id=" + LoginActivity.sharedPreferences.getInt("appId", 0),new Response.Listener<String>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -109,8 +109,13 @@ public class LlamadaFavoritos {
                     JSONArray favoritos = new JSONArray(response);
                     boolean encontrado = false;
                     for(int i = 0; i < favoritos.length(); i++){
-                        if (favoritos.getInt(i) == id)
-                            encontrado = true;
+                        if (LoginActivity.sharedPreferences.getInt("appId", 0) == 2){
+                            if (favoritos.getString(i) == id)
+                                encontrado = true;
+                        }else{
+                            if (favoritos.getInt(i) + "" == id)
+                                encontrado = true;
+                        }
                     }
                     activity.estaElementofaveado(encontrado);
                 } catch (JSONException e) {

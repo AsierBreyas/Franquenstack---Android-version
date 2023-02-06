@@ -1,8 +1,10 @@
 package com.example.franquenstack;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +31,7 @@ import com.example.franquenstack.modelos.App;
 import com.example.franquenstack.modelos.Elemento;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,6 +48,8 @@ public class ElementListActivity extends Activity {
     private ElementCardAdapter elementCardAdapter;
     private TextInputLayout filtroNombre;
     private boolean filtroFavActivado;
+    private ActivityResultLauncher<String> startForResult;
+    private ElementListActivity activity;
 
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
@@ -55,7 +64,7 @@ public class ElementListActivity extends Activity {
         goFav = findViewById(R.id.imageButtonGoFavList);
         goFav.setImageResource(R.drawable.fav);
         filtroFavActivado = false;
-        ElementListActivity activity = this;
+        activity = this;
         goFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,12 +76,17 @@ public class ElementListActivity extends Activity {
                     goFav.setImageResource(R.drawable.fav_relleno);
                 }else{
                     filtros.setSelection(0);
+                    listaActual.clear();
+                    listaFiltrada.clear();
+                    for (Elemento elemento: listaDeElementos){
+                        listaActual.add(elemento);
+                        listaFiltrada.add(elemento);
+                    }
                     elementCardAdapter.notifyDataSetChanged();
                     goFav.setImageResource(R.drawable.fav);
                 }
             }
         });
-
         buscar = findViewById(R.id.imageButtonElementListSearchButton);
         buscar.setImageResource(R.drawable.search);
         filtroNombre = findViewById(R.id.textInputLayoutFilterName);
@@ -174,5 +188,13 @@ public class ElementListActivity extends Activity {
             filtros.setVisibility(View.INVISIBLE);
         }
         elementCardAdapter.notifyDataSetChanged();
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if (filtroFavActivado){
+            LlamadaFavoritos lf = new LlamadaFavoritos(getApplicationContext());
+            lf.llamarListaFavoritos(activity);
+        }
     }
 }

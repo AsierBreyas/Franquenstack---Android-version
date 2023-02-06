@@ -1,10 +1,8 @@
 package com.example.franquenstack;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,22 +15,16 @@ import com.example.franquenstack.Adapters.ComentariosAdapter;
 import com.example.franquenstack.Adapters.JuegoAdapter;
 import com.example.franquenstack.Adapters.NetflixAdapter;
 import com.example.franquenstack.Adapters.PokemonAdapter;
-import com.example.franquenstack.Controladores.FavList;
 import com.example.franquenstack.llamadasApi.LlamadaComentarios;
 import com.example.franquenstack.llamadasApi.LlamadaElementosGenericos;
 import com.example.franquenstack.llamadasApi.LlamadaFavoritos;
 import com.example.franquenstack.modelos.Comentario;
-import com.example.franquenstack.modelos.Elemento;
 import com.example.franquenstack.modelos.ElementoGenerico;
 import com.example.franquenstack.modelos.JuegoDetalles;
 import com.example.franquenstack.modelos.NetflixDetalles;
 import com.example.franquenstack.modelos.PokemonDetalles;
 import com.google.android.material.textfield.TextInputLayout;
 import com.squareup.picasso.Picasso;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ElementGenericActivity extends Activity {
     RecyclerView listaComentarios, detalles;
@@ -87,9 +79,12 @@ public class ElementGenericActivity extends Activity {
                     fav.setImageResource(R.drawable.fav_relleno);
                 else
                     fav.setImageResource(R.drawable.fav);
-
                 LlamadaFavoritos lf = new LlamadaFavoritos(getApplicationContext());
-                lf.cambiarFavorito(elemento.getId());
+                if (LoginActivity.sharedPreferences.getInt("appId", 0) == 2)
+                    lf.cambiarFavorito(elemento.getName());
+                else
+                    lf.cambiarFavorito(elemento.getId() + "");
+
             }
         });
         detalles.setHasFixedSize(true);
@@ -130,7 +125,10 @@ public class ElementGenericActivity extends Activity {
             }
         });
         LlamadaFavoritos lf = new LlamadaFavoritos(getApplicationContext());
-        lf.estaElementoFaveado(this, elemento.getId());
+        if (LoginActivity.sharedPreferences.getInt("appId", 0) == 2)
+            lf.estaElementoFaveado(this, elemento.getName());
+        else
+            lf.estaElementoFaveado(this, elemento.getId() + "");
     }
     public void hacerAdaptador(ElementoGenerico elemento){
         comentariosAdapter = new ComentariosAdapter(elemento.getComentarios());
@@ -144,5 +142,9 @@ public class ElementGenericActivity extends Activity {
             fav.setImageResource(R.drawable.fav_relleno);
         else
             fav.setImageResource(R.drawable.fav);
+    }
+    @Override
+    public void onBackPressed(){
+        finish();
     }
 }

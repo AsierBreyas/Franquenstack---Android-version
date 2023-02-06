@@ -35,7 +35,7 @@ public class LlamadaComentarios {
             @Override
             public void onResponse(String response) {
                 String texto = response.toString();
-                Toast.makeText(context, texto, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Comment posted", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
