@@ -75,9 +75,9 @@ public class LlamadaFavoritos {
             public void onResponse(String response) {
                 try {
                     JSONArray favoritos = new JSONArray(response);
-                    ArrayList<Integer> favList = new ArrayList<>();
+                    ArrayList<String> favList = new ArrayList<>();
                     for(int i = 0; i < favoritos.length(); i++){
-                        favList.add(favoritos.getInt(i));
+                        favList.add(favoritos.getString(i));
                     }
                     activity.ponerFavoritos(favList);
                 } catch (JSONException e) {
@@ -110,10 +110,10 @@ public class LlamadaFavoritos {
                     boolean encontrado = false;
                     for(int i = 0; i < favoritos.length(); i++){
                         if (LoginActivity.sharedPreferences.getInt("appId", 0) == 2){
-                            if (favoritos.getString(i) == id)
+                            if (favoritos.getString(i).equals(id))
                                 encontrado = true;
                         }else{
-                            if (favoritos.getInt(i) + "" == id)
+                            if ((favoritos.getInt(i) + "").equals(id))
                                 encontrado = true;
                         }
                     }

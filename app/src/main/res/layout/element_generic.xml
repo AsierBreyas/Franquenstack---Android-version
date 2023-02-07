@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
-    android:padding="8dp" >
+    android:background="#2196F3"
+    android:padding="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="Genre:"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/scrollView2"
@@ -45,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="Realese date:"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericGenre"
                 app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericGenre" />
@@ -55,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="Publisher:"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/textViewElemetGenericDate"
                 app:layout_constraintTop_toBottomOf="@+id/textViewElemetGenericDate" />
@@ -78,6 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="193dp"
         android:layout_marginTop="16dp"
+        android:background="#FF2A45DC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +93,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="15dp"
         android:text="Nombre"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewElementGenericFav"
@@ -100,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="6dp"
-        android:background="#B5B5B5"
+        android:background="#FF2A45DC"
         android:padding="4dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewDetallesElemento"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
@@ -112,6 +117,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Descripcion"
+            android:textColor="#FFFFFF"
             android:textSize="22sp" />
     </ScrollView>
 
@@ -143,7 +149,7 @@
             android:id="@+id/buttonElementGenericEnviarComentario"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="#00BCD4"
+            android:backgroundTint="#FFFFFF"
             app:srcCompat="@drawable/envia2" />
 
     </LinearLayout>
@@ -153,6 +159,7 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_marginTop="6dp"
+        android:background="#FF2A45DC"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

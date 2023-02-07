@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondoLogin">
+    android:background="#2196F3">
+
     <ImageView
         android:id="@+id/imageViewLogoRegistrer"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginStart="50dp"
+        android:src="@drawable/franquenstack"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayoutRegistrer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/franquenstack" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewRegistrerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Registrer"
+        android:textColor="#FFFFFF"
         android:textSize="24dp"
         android:textStyle="bold"
-        android:text="Registrer"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayoutRegistrer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageViewLogoRegistrer"
@@ -89,6 +92,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="34dp"
             android:text="Username"
+            android:textColor="#FFFFFF"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:textColor="#FFFFFF"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutRegistrerPassword"
@@ -128,6 +133,7 @@
             android:layout_marginStart="20dp"
             android:text="Repeat \n  Password"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutRepearPassword"
@@ -140,6 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Email"
+            android:textColor="#FFFFFF"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutRegistrerEmail"
@@ -163,8 +170,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/teal_200"
-                android:text="Create \nuser" />
+                android:backgroundTint="#FFFFFF"
+                android:text="Create \nuser"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/buttonRegistrerGoBack"
@@ -174,8 +182,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/teal_200"
-                android:text="Go \nback" />
+                android:backgroundTint="#FFFFFF"
+                android:text="Go \nback"
+                android:textColor="#000000" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
