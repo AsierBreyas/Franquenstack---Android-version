@@ -23,4 +23,12 @@ Dependiendo del numero de estrellas que esten en amarillo, será la puntuación 
 
 **3. Ir a los detalles:** En el listado de aplicaciones, debajo, en el boton de abajo del todo que pone "Detials", si le damos iremos a una pestaña donde aparecerán los detalles de la aplicación.
 
-**4. Ir a la aplicación:** En el listado de aplicaciones, al lado de la media hay un boton que pone "Go App", si le damos iremos a la propia aplicación. 
+**4. Ir a la aplicación:** En el listado de aplicaciones, al lado de la media hay un boton que pone "Go App", si le damos iremos a la propia aplicación.
+
+### Detalles de una App
+
+En la pantalla de los detalles de una aplicación podremos hacer lo siguiente:
+
+**1. Ver detalles:** Aqui aparecerán  los detalles de la aplicación, la descripción y los comentarios que tiene esta. Podrás ver que usuario a ha puesto el comentario y a que hora se ha puesto.
+
+**2. Publicar un comentario:** Escribiendo en la caja de texto que esta debajo de los detalles de la aplicación. Cuando queramos publicar el comentario le daremos al botón de enviar y se envía el comentario. La caja de texto no tiene que estar vacía para que se envie
