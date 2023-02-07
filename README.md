@@ -32,3 +32,15 @@ En la pantalla de los detalles de una aplicación podremos hacer lo siguiente:
 **1. Ver detalles:** Aqui aparecerán  los detalles de la aplicación, la descripción y los comentarios que tiene esta. Podrás ver que usuario a ha puesto el comentario y a que hora se ha puesto.
 
 **2. Publicar un comentario:** Escribiendo en la caja de texto que esta debajo de los detalles de la aplicación. Cuando queramos publicar el comentario le daremos al botón de enviar y se envía el comentario. La caja de texto no tiene que estar vacía para que se envie
+
+### En una app
+
+Cuando estas dentro de una aplicación puedes hacer lo siguiente:
+
+**1. Filtrar por favoritos:** Arriba del todo hay un botón con un corazón que si le das, aparecerán todos los elementos que el usuario a faveado en esa aplicación. Si el usuario no ha faveado nada, simplemente no se activará el filtro. Mientras este el filtro este activado los demás filtros no estarán disponibles.
+
+**2. Filtrar por nombre:** Hay un cuadro de texto que te permite filtrar los resultados por su nombre. Si quieres quitar el filtro solo tienes que quitar el texto del cuadro y darle de nuevo al boton de buscar. Si hay un filtro de generos activo, la busqueda se aplicará sobre la lista actual y no sobre todos los elementos
+
+**3. Filtrar por generos:** Hay un dropdown que al darle nos aparecerán los diferentes géneros que tenemos disponibles para filtrar. En caso de haya un filtro de nombre activo, el filtro se aplicará sobre todos los elementos solo. 
+
+**4. Ir al elemento:** Cuando le demos click a la tarjeta nos llevará a una vista del pokemon. 
