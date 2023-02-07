@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#B5B5B5"
+    android:background="#FF2A45DC"
     android:padding="6dp">
 
     <TextView
@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mininum System Requirements"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +28,7 @@
         android:layout_marginEnd="6dp"
         android:paddingStart="35dp"
         android:text="Os:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -40,6 +42,7 @@
         android:layout_marginEnd="6dp"
         android:paddingStart="35dp"
         android:text="Memory:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewOs" />
@@ -53,6 +56,7 @@
         android:layout_marginEnd="6dp"
         android:paddingStart="35dp"
         android:text="Graphics:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMemory" />
@@ -66,6 +70,7 @@
         android:layout_marginEnd="6dp"
         android:paddingStart="35dp"
         android:text="Storage:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewGraphics" />
@@ -79,6 +84,7 @@
         android:layout_marginEnd="6dp"
         android:paddingStart="35dp"
         android:text="Processor:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewStorage" />

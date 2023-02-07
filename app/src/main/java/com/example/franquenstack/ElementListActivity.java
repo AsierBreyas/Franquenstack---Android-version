@@ -169,11 +169,17 @@ public class ElementListActivity extends Activity {
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void ponerFavoritos(ArrayList<Integer> favoritos){
+    public void ponerFavoritos(ArrayList<String> favoritos){
         listaActual.clear();
-        for (int favId: favoritos){
-            for (Elemento elemento: (ArrayList<Elemento>) listaDeElementos.stream().filter(x -> x.getId() == favId).collect(Collectors.toList())){
-                listaActual.add(elemento);
+        for (String favId: favoritos){
+            if (LoginActivity.sharedPreferences.getInt("appId", 0) == 2){
+                for (Elemento elemento: (ArrayList<Elemento>) listaDeElementos.stream().filter(x -> x.getName().equals(favId)).collect(Collectors.toList())){
+                    listaActual.add(elemento);
+                }
+            }else{
+                for (Elemento elemento: (ArrayList<Elemento>) listaDeElementos.stream().filter(x -> (x.getId() + "").equals(favId)).collect(Collectors.toList())){
+                    listaActual.add(elemento);
+                }
             }
         }
         if (listaActual.size() == 0){

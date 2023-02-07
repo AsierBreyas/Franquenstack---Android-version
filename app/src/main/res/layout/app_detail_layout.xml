@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:background="#2196F3"
     android:padding="14dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:text="NotaApp"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewMediaDetalles"
@@ -45,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="App"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="#FFFFFF"
+        android:background="#FF2A45DC"
         android:foregroundGravity="center_vertical|clip_vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +120,7 @@
             android:id="@+id/buttonElementGenericEnviarComentario"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="#00BCD4"
+            android:backgroundTint="#FFFFFF"
             app:srcCompat="@drawable/envia2" />
 
     </LinearLayout>

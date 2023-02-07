@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="25dp"
-    android:background="#B5B5B5"
+    android:background="#FF2A45DC"
     android:padding="12dp">
 
     <ImageView
@@ -37,6 +37,7 @@
             android:layout_weight="1"
             android:paddingLeft="16dp"
             android:text="Patata"
+            android:textColor="#FFFFFF"
             android:textSize="24dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
