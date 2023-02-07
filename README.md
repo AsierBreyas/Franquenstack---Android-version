@@ -21,6 +21,6 @@ En la pantalla del listado de las aplicaciones podremos hacer lo siguiente:
 **2. Puntuar las aplicaciones:** En el listado, podremos valorar las aplicaciones con las estrellas en blanco o en amarillo, dependiendo de la valoracion que les hayamos metido o si todavía no las has valorado.
 Dependiendo del numero de estrellas que esten en amarillo, será la puntuación que le haya dado el usuario. El numero de abajo se actualizará automaticamente con la media de todos los usuarios que lo hayan puntuado la aplicación.
 
-**3. Ir a los detalles:** En el listado de aplicaciones, debajo, en el boton de abajo del todo que pone "Detials", si le damos click iremos a una pestaña donde aparecerán los detalles de la aplicación.
+**3. Ir a los detalles:** En el listado de aplicaciones, debajo, en el boton de abajo del todo que pone "Detials", si le damos iremos a una pestaña donde aparecerán los detalles de la aplicación.
 
-**4. Ir a la aplicación:** 
+**4. Ir a la aplicación:** En el listado de aplicaciones, al lado de la media hay un boton que pone "Go App", si le damos iremos a la propia aplicación. 
