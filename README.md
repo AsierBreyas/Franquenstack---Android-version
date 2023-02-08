@@ -43,4 +43,14 @@ Cuando estas dentro de una aplicación puedes hacer lo siguiente:
 
 **3. Filtrar por generos:** Hay un dropdown que al darle nos aparecerán los diferentes géneros que tenemos disponibles para filtrar. En caso de haya un filtro de nombre activo, el filtro se aplicará sobre todos los elementos solo. 
 
-**4. Ir al elemento:** Cuando le demos click a la tarjeta nos llevará a una vista del pokemon. 
+**4. Ir al elemento:** Cuando le demos click a la tarjeta nos llevará a una vista del elemento. 
+
+### En un elemento
+
+Cuando estas dentro de un elemento puedes hacer lo siguiente:
+
+**1. Ver detalles del elemento:** Aparecerán detalles genericos como detalles de cada tipo de elemento. La estructura de todos los elementos es igual.
+
+**2. Favear el elemento:** Hay un botón arriba del todo. Si esta rellenado es que el elemento esta faveado por el usuario. En caso de quitarlo solo le tienes que dar al corazón para que se quite. Si quieres añadirlo es lo mismo, dale al corazón y se añadirá a favoritos.
+
+**3. Publicar un comentario:** Escribiendo en la caja de texto que esta debajo del scroll de los detalles especificos del elemento. Cuando queramos publicar el comentario le daremos al botón de enviar y se envía el comentario. La caja de texto no tiene que estar vacía para que se envie.
