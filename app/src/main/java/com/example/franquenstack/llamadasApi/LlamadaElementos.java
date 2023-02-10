@@ -12,6 +12,7 @@ import com.example.franquenstack.ElementListActivity;
 import com.example.franquenstack.LoginActivity;
 import com.example.franquenstack.R;
 import com.example.franquenstack.modelos.Elemento;
+import com.example.franquenstack.modelos.ElementoGenerico;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,15 +23,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LlamadaListaElementos extends LlamarApi {
+public class LlamadaElementos {
     Context context;
+    ElementListActivity activity;
 
-    public LlamadaListaElementos(Context context) {
+    public LlamadaElementos(Context context, ElementListActivity activity) {
 
         this.context = context;
+        this.activity = activity;
     }
 
-    public void llamandoListaElementos(ElementListActivity activity) {
+    public void llamandoListaElementos() {
 
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.listaElementos) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1), new Response.Listener<String>() {

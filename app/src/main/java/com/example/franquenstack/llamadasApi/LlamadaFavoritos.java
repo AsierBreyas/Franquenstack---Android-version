@@ -13,7 +13,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.franquenstack.Controladores.ApplicationController;
-import com.example.franquenstack.Controladores.FavList;
 import com.example.franquenstack.ElementGenericActivity;
 import com.example.franquenstack.ElementListActivity;
 import com.example.franquenstack.LoginActivity;
@@ -29,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LlamadaFavoritos {
+public class    LlamadaFavoritos {
     private Context context;
     public LlamadaFavoritos(Context context){
         this.context = context;
