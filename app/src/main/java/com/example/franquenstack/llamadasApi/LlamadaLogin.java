@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class LlamadaLogin extends LlamarApi {
+public class LlamadaLogin {
     Context context;
     Activity activity;
 
@@ -37,9 +37,6 @@ public class LlamadaLogin extends LlamarApi {
     }
 
     private void iniciar(String url) {
-        if (url == "" || url == null)
-            url = "http://10.10.12.87:8080/auth/login";
-        setStringUrl(url);
     }
 
     public void logearse(String username, String password) {

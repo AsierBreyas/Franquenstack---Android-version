@@ -9,7 +9,7 @@ import com.example.franquenstack.llamadasApi.LlamadaRegistro;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegistrerActivity extends Activity {
-    Button registrarse, goBack;
+    Button registrarse;
     TextInputLayout username, password, repeatPassword, email;
 
     @Override
@@ -18,7 +18,6 @@ public class RegistrerActivity extends Activity {
         setContentView(R.layout.registrer_actvity);
 
         registrarse = (Button) findViewById(R.id.buttonRegistrer);
-        goBack = (Button) findViewById(R.id.buttonRegistrerGoBack);
         username = (TextInputLayout) findViewById(R.id.textInputLayoutRegistrerUsername);
         password = (TextInputLayout) findViewById(R.id.textInputLayoutRegistrerPassword);
         repeatPassword = (TextInputLayout) findViewById(R.id.textInputLayoutRepearPassword);

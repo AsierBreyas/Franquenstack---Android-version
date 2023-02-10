@@ -23,7 +23,6 @@ import java.util.List;
 
 public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.ViewHolder2>{
     private List<Elemento> elementos;
-    ElementListActivity activity;
     public static class ViewHolder2 extends RecyclerView.ViewHolder{
         ImageView elementImage;
         TextView elementNombre;
@@ -37,7 +36,7 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
             layout = view.findViewById(R.id.constraintLayoutElementCard);
             context = view.getContext();
         }
-        public void activarBotonDetalles(Elemento elemento, ElementListActivity activity){
+        public void activarBotonDetalles(Elemento elemento){
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -52,9 +51,8 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
         }
 
     }
-    public ElementCardAdapter(List<Elemento> elementos, ElementListActivity activity){
+    public ElementCardAdapter(List<Elemento> elementos){
         this.elementos = elementos;
-        this.activity = activity;
     }
     @Override
     public ElementCardAdapter.ViewHolder2 onCreateViewHolder(ViewGroup viewGroup, int viewType){
@@ -65,7 +63,7 @@ public class ElementCardAdapter extends RecyclerView.Adapter<ElementCardAdapter.
     public void onBindViewHolder(ElementCardAdapter.ViewHolder2 viewHolder, final int position){
         Elemento elemento = elementos.get(position);
         viewHolder.elementNombre.setText(elemento.getName().substring(0,1).toUpperCase() + elemento.getName().substring(1));
-        viewHolder.activarBotonDetalles(elemento, activity);
+        viewHolder.activarBotonDetalles(elemento);
         Picasso.get().load(elemento.getImagen()).into(viewHolder.elementImage);
         viewHolder.faveado = false;
     }

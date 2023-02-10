@@ -44,15 +44,8 @@ public class Elemento {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     public ArrayList<String> getGeneros() {
         return generos;
     }
 
-    public void setGeneros(ArrayList<String> generos) {
-        this.generos = generos;
-    }
 }

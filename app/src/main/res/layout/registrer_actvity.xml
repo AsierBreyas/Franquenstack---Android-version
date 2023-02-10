@@ -174,17 +174,6 @@
                 android:text="Create \nuser"
                 android:textColor="#000000" />
 
-            <Button
-                android:id="@+id/buttonRegistrerGoBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                android:text="Go \nback"
-                android:textColor="#000000" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

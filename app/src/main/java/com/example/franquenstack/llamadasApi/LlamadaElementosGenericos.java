@@ -31,7 +31,7 @@ public class LlamadaElementosGenericos {
         this.context = context;
         this.activity = activity;
     }
-    public void obtenerElemento(int idElemento) {
+/*    public void obtenerElemento(int idElemento) {
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.obtenerElementoGenerico) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1) + "&item=" + idElemento, new Response.Listener<String>() {
             @Override
@@ -59,7 +59,7 @@ public class LlamadaElementosGenericos {
             }
         };
         ApplicationController.getInstance().addToRequestQueue(request);
-    }
+    }*/
     public void obtenerElemento(String nombreElemento) {
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.obtenerElementoGenerico) + "?api=" + LoginActivity.sharedPreferences.getInt("appId", 1) + "&item=" + nombreElemento, new Response.Listener<String>() {

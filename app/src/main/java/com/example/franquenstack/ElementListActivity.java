@@ -1,10 +1,8 @@
 package com.example.franquenstack;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,24 +12,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.franquenstack.Adapters.ElementCardAdapter;
-import com.example.franquenstack.Controladores.FavList;
 import com.example.franquenstack.llamadasApi.LlamadaFavoritos;
-import com.example.franquenstack.llamadasApi.LlamadaListaElementos;
+import com.example.franquenstack.llamadasApi.LlamadaElementos;
 import com.example.franquenstack.llamadasApi.LlamadaListaGeneros;
 import com.example.franquenstack.modelos.App;
 import com.example.franquenstack.modelos.Elemento;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,7 +40,6 @@ public class ElementListActivity extends Activity {
     private ElementCardAdapter elementCardAdapter;
     private TextInputLayout filtroNombre;
     private boolean filtroFavActivado;
-    private ActivityResultLauncher<String> startForResult;
     private ElementListActivity activity;
 
     protected void onCreate(Bundle savedInstance){
@@ -115,8 +106,8 @@ public class ElementListActivity extends Activity {
         filtros = findViewById(R.id.spinnerFiltros);
 
         elementosLista = findViewById(R.id.elementosLista);
-        LlamadaListaElementos lle = new LlamadaListaElementos(getApplicationContext());
-        lle.llamandoListaElementos(this);
+        LlamadaElementos le = new LlamadaElementos(getApplicationContext(), this);
+        le.llamandoListaElementos();
 
     }
     public void enseñarListado(List<Elemento> elementos){
@@ -125,12 +116,12 @@ public class ElementListActivity extends Activity {
         listaFiltrada = new ArrayList<>();
         for (Elemento elemento: elementos)
             listaActual.add(elemento);
-        elementCardAdapter = new ElementCardAdapter(listaActual, this);
+        elementCardAdapter = new ElementCardAdapter(listaActual);
         elementosLista.setHasFixedSize(true);
         elementosLista.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         elementosLista.setAdapter(elementCardAdapter);
-        LlamadaListaGeneros llg = new LlamadaListaGeneros(getApplicationContext());
-        llg.llamarGeneros(this);
+        LlamadaListaGeneros llg = new LlamadaListaGeneros(getApplicationContext(), this);
+        llg.llamarGeneros();
     }
     public void ponerSpiner(ArrayList<String> generos){
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(),  android.R.layout.simple_spinner_item, generos);

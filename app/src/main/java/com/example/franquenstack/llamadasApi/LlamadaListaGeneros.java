@@ -24,10 +24,12 @@ import java.util.Map;
 
 public class LlamadaListaGeneros {
     Context context;
-    public LlamadaListaGeneros(Context context){
+    ElementListActivity activity;
+    public LlamadaListaGeneros(Context context, ElementListActivity activity){
         this.context = context;
+        this.activity = activity;
     }
-    public void llamarGeneros(ElementListActivity activity){
+    public void llamarGeneros(){
         StringRequest request = new StringRequest(Request.Method.GET,
                 context.getString(R.string.listaGeneros) + "?app_id=" + LoginActivity.sharedPreferences.getInt("appId", 1), new Response.Listener<String>() {
             @Override

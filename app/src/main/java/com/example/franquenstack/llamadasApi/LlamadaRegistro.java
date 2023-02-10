@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LlamadaRegistro extends LlamarApi{
+public class LlamadaRegistro{
     Context context;
     Activity activity;
     public LlamadaRegistro(Context context, Activity activity){
