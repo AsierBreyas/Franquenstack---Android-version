@@ -1,6 +1,6 @@
 # Franquenstack---Android-version
 ### Empezando
-Para poder usar esta aplicación, tienes que tener arrancada la API de Franquenstack en algún lugar y que la aplicación de Android apunte a esta misma. Una vez arrancada la API, la aplicación puede moverse más allá del login.
+Para poder usar esta aplicación, tienes que tener arrancada la API de Franquenstack en algún lugar y que la aplicación de Android apunte a esta misma. Una vez arrancada la API, la aplicación puede moverse más allá del login. La app esta configurada para que la API este arrancada en local. En caso de necesitar cambiar la IP, tienes que ir al archivo de Strings y cambiar la ip "10.0.2.2" por la que necesites
 
 Iniciando la aplicación, nos aparecerá un login para que nos autentiquemos en la aplicación. Si no tienes usuario siempre podrás crear uno en el boton de create user.
 
